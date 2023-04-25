@@ -1,5 +1,7 @@
 package q5
 
+import "strings"
+
 //Pedro começou a frequentar aulas de programação. Na primeira aula, sua tarefa foi escrever um programa simples. O
 //programa deveria fazer o seguinte: na sequência de caracteres fornecida, composta por letras latinas maiúsculas e
 //minúsculas, ele:
@@ -15,6 +17,29 @@ package q5
 //Ajude Pedro a lidar com esta tarefa fácil.
 
 func ProcessString(s string) string {
-	// Seu código aqui
-	return ""
+	x := strings.Split(s, "")
+	i := 0
+	for i < len(x) {
+		x[i] = strings.ToLower(x[i])
+		i++
+	}
+
+	newSlice := []string{}
+	vogais := "aeiou"
+	for _, j := range x {
+		if !strings.ContainsAny(j, vogais) {
+			newSlice = append(newSlice, j)
+		}
+
+	}
+	i = 0
+	newS := ""
+	for i < len(newSlice) {
+		newS += "."
+		newS += newSlice[i]
+
+		i++
+	}
+
+	return newS
 }
